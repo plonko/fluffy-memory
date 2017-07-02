@@ -1,0 +1,81 @@
+body {
+    overflow: hidden;
+}
+
+input {
+    display: none;
+}
+
+#slider {
+    margin-right: 50%;
+}
+
+// Slides setup
+#slide1:checked ~ .slides .wrapper { margin-left:0; }
+#slide2:checked ~ .slides .wrapper { margin-left:-100%; }
+#slide3:checked ~ .slides .wrapper { margin-left:-200%; }
+#slide4:checked ~ .slides .wrapper { margin-left:-300%; }
+#slide5:checked ~ .slides .wrapper { margin-left:-400%; }
+
+.slides {
+    .wrapper {
+        width: 500%;
+        line-height: 0;
+    }
+}
+
+.slide {
+    width: 20%;
+    float: left;
+    img {
+        width: 100%;
+    }
+}
+
+// Controls container
+.controls {
+    width: 100%;
+    height: 30px;
+    clear: both;
+    background-color: lightgray;
+    color: white;
+    font-size: 20px;
+
+    // Hide the labels by default.. 
+    label { 
+        display: none;
+    }
+}
+
+// Next arrows
+#slide1:checked ~ .controls label:nth-child(2), 
+#slide2:checked ~ .controls label:nth-child(3), 
+#slide3:checked ~ .controls label:nth-child(4), 
+#slide4:checked ~ .controls label:nth-child(5), 
+#slide5:checked ~ .controls label:nth-child(1) {
+    &:before {
+        content: ">";
+    }
+    float: right;
+    display: block;
+    cursor: pointer;
+}
+
+// Previous arrow
+#slide1:checked ~ .controls label:nth-child(5),
+#slide2:checked ~ .controls label:nth-child(1),
+#slide3:checked ~ .controls label:nth-child(2),
+#slide4:checked ~ .controls label:nth-child(3),
+#slide5:checked ~ .controls label:nth-child(4) {
+    &:before {
+        content: "<";
+    }
+    float: left;
+    display: block;
+    cursor: pointer;
+}
+
+// Animation
+.slides .wrapper {
+    transition: all 500ms;
+}

@@ -1,0 +1,118 @@
+/* line 1, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+body {
+  overflow: hidden;
+}
+
+/* line 5, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+input {
+  display: none;
+}
+
+/* line 9, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slider {
+  margin-right: 50%;
+}
+
+/* line 14, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide1:checked ~ .slides .wrapper {
+  margin-left: 0;
+}
+
+/* line 15, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide2:checked ~ .slides .wrapper {
+  margin-left: -100%;
+}
+
+/* line 16, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide3:checked ~ .slides .wrapper {
+  margin-left: -200%;
+}
+
+/* line 17, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide4:checked ~ .slides .wrapper {
+  margin-left: -300%;
+}
+
+/* line 18, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide5:checked ~ .slides .wrapper {
+  margin-left: -400%;
+}
+
+/* line 21, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+.slides .wrapper {
+  width: 500%;
+  line-height: 0;
+}
+
+/* line 27, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+.slide {
+  width: 20%;
+  float: left;
+}
+
+/* line 30, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+.slide img {
+  width: 100%;
+}
+
+/* line 36, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+.controls {
+  width: 100%;
+  height: 30px;
+  clear: both;
+  background-color: lightgray;
+  color: white;
+  font-size: 20px;
+}
+
+/* line 45, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+.controls label {
+  display: none;
+}
+
+/* line 51, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide1:checked ~ .controls label:nth-child(2),
+#slide2:checked ~ .controls label:nth-child(3),
+#slide3:checked ~ .controls label:nth-child(4),
+#slide4:checked ~ .controls label:nth-child(5),
+#slide5:checked ~ .controls label:nth-child(1) {
+  float: right;
+  display: block;
+  cursor: pointer;
+}
+
+/* line 56, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide1:checked ~ .controls label:nth-child(2):before,
+#slide2:checked ~ .controls label:nth-child(3):before,
+#slide3:checked ~ .controls label:nth-child(4):before,
+#slide4:checked ~ .controls label:nth-child(5):before,
+#slide5:checked ~ .controls label:nth-child(1):before {
+  content: ">";
+}
+
+/* line 65, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide1:checked ~ .controls label:nth-child(5),
+#slide2:checked ~ .controls label:nth-child(1),
+#slide3:checked ~ .controls label:nth-child(2),
+#slide4:checked ~ .controls label:nth-child(3),
+#slide5:checked ~ .controls label:nth-child(4) {
+  float: left;
+  display: block;
+  cursor: pointer;
+}
+
+/* line 70, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+#slide1:checked ~ .controls label:nth-child(5):before,
+#slide2:checked ~ .controls label:nth-child(1):before,
+#slide3:checked ~ .controls label:nth-child(2):before,
+#slide4:checked ~ .controls label:nth-child(3):before,
+#slide5:checked ~ .controls label:nth-child(4):before {
+  content: "<";
+}
+
+/* line 79, /Users/seb/dev/fluffy-memory/carousel/style/style.scss */
+.slides .wrapper {
+  transition: all 500ms;
+}
+
+/*# sourceMappingURL=../style.map */
