@@ -1,0 +1,90 @@
+// Variables
+// shadowss
+$border-width: 8px;
+
+$plant-width: 100px;
+$plant-height: 180px;
+
+$pot-width: $plant-width*1.5;
+$pot-height: 60px;
+
+$shadow-width: $pot-width*1.2; //Pot width plus 20%
+$shadow-height: 35px;
+
+// Colors
+$shadow-color: #e5e5e5;
+$border-color: #b88400;
+$pot-base-color: #d3d3d3;
+$cactus-flower-color: #ffb5c0;
+$cactus-light-color: #90EE90;
+$cactus-dark-color: #5EE65E;
+
+
+// Mixins
+@mixin center-absolute {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+// Base and shadow
+#cactus {
+    width: $shadow-width;
+    height: $shadow-height;
+    position: absolute;
+    @include center-absolute;
+    top: 50%;
+    background: $shadow-color;
+    border-radius: 50%;
+
+    &:before, 
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+    }
+}
+
+// Plant
+#cactus:before {
+    width: $plant-width;
+    height: $plant-height;
+    @include center-absolute;
+    bottom: 35px;
+    z-index: 1;
+    background-image:
+    // Dots for catcus prickles
+    radial-gradient(white 10%, transparent 18%),
+
+    // Alternating stripes for cactus plant
+    repeating-linear-gradient(
+        to right,
+        $cactus-light-color,
+        $cactus-light-color 12px,
+        $cactus-dark-color 0px,
+        $cactus-dark-color 23px
+    );
+    background-size: 19px 19px, auto auto;
+    border-radius: 50%;
+    border: $border-width solid $border-color;
+}
+
+// Pot
+#cactus:after {
+    width: $pot-width;
+    height: $pot-height;
+    @include center-absolute;
+    bottom: 15px;
+    z-index: 2;
+    background-color: $pot-base-color;
+    background-image: linear-gradient(
+        to left, 
+        darken( $pot-base-color, 10% ) 25%, 
+        darken( $pot-base-color, 5% ) 25%, 
+        darken( $pot-base-color, 5% ) 50%, 
+        transparent 50%
+    );
+    border-radius: 10px 10px $pot-width/2 $pot-width/2;
+    border: $border-width solid $border-color;
+}
